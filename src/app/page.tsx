@@ -5,36 +5,27 @@ import Hero from "./Hero";
 
 
 import Link from 'next/link';
-import Navbar from "../components/Navbar";
-import { useRef, useState } from "react";
+
+import { useRef} from "react";
 
 import { motion, useInView } from 'framer-motion'
 import { slideInFromLeft, slideInFromRight } from '@/utils/motion'
-import MobileNav from "../components/mobilenav";
-import Footer from "../components/Footer";
-export default function Home() {
 
-    
-  const [showNav, setShowNav] = useState(false);
-  const showNavHandler = () => setShowNav (true);
-  const closeNavHandler =() => setShowNav(false);
+export default function Home() {
+;
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 }); 
 
   
   return (
-    <div>
-    <header className="h-full w-full">
-    <MobileNav showNav ={showNav} closeNav={closeNavHandler} />
- 
-    <Navbar openNav={showNavHandler} />
-
-      </header>
-      <section className="flex flex-col gap-20 overflow-hidden">
+    <main className="h-full w-full">
+    <div className="">
+      
+    </div>
+    <div className="flex flex-col gap-20 overflow-hidden z-[1000]">
       <Hero />
-    
-</section>
+</div>
 
 <motion.div
     ref={ref}
@@ -54,8 +45,8 @@ export default function Home() {
         
         <div className='w-[90%] h-[80%] items-center'>
   {/* service card */}
-  <div className="justify-center gap-8 items-center flex-wrap mt-8 mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 md:ml-16">
-    <div className="blog_card transform hover:scale-105 transition-transform duration-300 w-[330px]bg-primary border-[2px] rounded-xl p-4">
+  <div className="justify-center gap-8 items-center flex-wrap mt-8 mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 ml-[1.6rem] md:ml-32 z-20">
+    <div className="blog_card transform hover:scale-105 transition-transform duration-300 w-[100%] lg:w-[350px]bg-primary border-[2px] rounded-xl p-4">
         <div className="">
             <Image src="/blogimages/Artificial Intelligence and Machine Learning.png" alt="Artificial Intelligence and Machine Learning"
                 width={500}
@@ -69,10 +60,10 @@ export default function Home() {
             <p className="mt-[0.5rem] text-white text-opacity-75">Explore the latest advancements in AI and ML, including generative AI, natural language processing, and computer vision. Discuss their applications in various industries, such as healthcare, finance, and manufacturing.</p>
         </div>
         <div className="button">
-            <button className="mx-auto px-4 py-2 cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_1'>Read More</Link></button>
+            <button className="mx-auto px-4 py-2 ml-[10rem] cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg hover:scale-110"><Link href='/Blog_1'>Read More</Link></button>
         </div>
   </div>
-    <div className='blog_card transform hover:scale-105 transition-transform duration-300 w-[330px]bg-primary border-[2px] rounded-xl p-4'>
+    <div className='blog_card transform hover:scale-105 transition-transform duration-300 w-[100%] lg:w-[350px]bg-primary border-[2px] rounded-xl p-4'>
       <div className="">
         <Image src="/blogimages/Cybersecurity and Data Privacy.png" alt='Cybersecurity and Data Privacy'
           width={500}
@@ -86,11 +77,11 @@ export default function Home() {
         <p className="mt-[0.5rem] text-white text-opacity-75">Examine the increasing threat of cyberattacks and the importance of data privacy. Discuss the latest cybersecurity trends, best practices, and the impact of data breaches on individuals and organizations.</p>
       </div>
       <div className="button">
-        <button className="mx-auto px-4 py-2 cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_2'>Read More</Link></button>
+        <button className="mx-auto px-4 py-2 ml-[10rem] hover:scale-110 cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_2'>Read More</Link></button>
       </div>
     </div>
 
-    <div className='blog_card transform hover:scale-105 transition-transform duration-300 w-[330px]bg-primary border-[2px] rounded-xl p-4'>
+    <div className='blog_card transform hover:scale-105 transition-transform duration-300 w-[350px]bg-primary border-[2px] rounded-xl p-4'>
       <div className="">
         <Image src="/blogimages/Web3 and Blockchain Technology.png" alt='Web3 and Blockchain Technology'
           width={500}
@@ -104,11 +95,11 @@ export default function Home() {
         <p className="mt-[0.5rem] text-white text-opacity-75">Explore the decentralized web and blockchain technology, including cryptocurrencies, NFTs, and decentralized finance (DeFi). Discuss the potential benefits and challenges of this new paradigm, as well as its impact on traditional industries.</p>
       </div>
       <div className="button">
-        <button className="mx-auto px-4 py-2 cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_3'>Read More</Link></button>
+        <button className="mx-auto px-4 py-2 ml-[10rem] hover:scale-110 cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_3'>Read More</Link></button>
       </div>
     </div>
 
-    <div className='blog_card transform hover:scale-105 transition-transform duration-300 w-[330px]bg-primary border-[2px] rounded-xl p-4'>
+    <div className='blog_card transform hover:scale-105 transition-transform duration-300 w-[350px]bg-primary border-[2px] rounded-xl p-4'>
       <div className="">
         <Image src="/blogimages/Sustainability and Green Technol (2).png" alt='Sustainability and Green Technology'
           width={500}
@@ -122,11 +113,11 @@ export default function Home() {
         <p className="mt-[0.5rem] text-white text-opacity-75">Discuss the growing importance of sustainability in technology and the development of green and eco-friendly solutions. Explore topics like renewable energy, energy efficiency, and sustainable computing.</p>
       </div>
       <div className="button">
-        <button className="mx-auto px-4 py-2 cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_4'>Read More</Link></button>
+        <button className="mx-auto px-4 py-2  ml-[10rem] hover:scale-110 cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_4'>Read More</Link></button>
       </div>
     </div>
 
-    <div className='blog_card transform hover:scale-105 transition-transform duration-300 w-[330px]bg-primary border-[2px] rounded-xl p-4'>
+    <div className='blog_card transform hover:scale-105 transition-transform duration-300 w-[350px]bg-primary border-[2px] rounded-xl p-4'>
       <div className="">
         <Image src="/blogimages/Metaverse and Virtual Reality blog.png" alt='Metaverse and Virtual Reality'
           width={500}
@@ -140,11 +131,11 @@ export default function Home() {
         <p className="mt-[0.5rem] text-white text-opacity-75">Delve into the emerging world of the metaverse, a virtual space where people can interact and engage in various activities. Discuss the potential of VR and augmented reality (AR) to revolutionize industries like gaming, education, and social interactions.</p>
       </div>
       <div className="button">
-        <button className="mx-auto px-4 py-2 cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_5'>Read More</Link></button>
+        <button className="mx-auto px-4 py-2 ml-[10rem] hover:scale-110  cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_5'>Read More</Link></button>
       </div>
     </div>
 
-    <div className='blog_card transform hover:scale-105 transition-transform duration-300 w-[330px]bg-primary border-[2px] rounded-xl p-4'>
+    <div className='blog_card transform hover:scale-105 transition-transform duration-300 w-[350px]bg-primary border-[2px] rounded-xl p-4'>
       <div className="">
         <Image src="/blogimages/Future of Work and Automation.png" alt='Future of Work and Automation'
           width={500}
@@ -158,7 +149,7 @@ export default function Home() {
         <p className="mt-[0.5rem] text-white text-opacity-75">Explore how technology is transforming the workplace, including automation, remote work, and the gig economy. Discuss the skills needed to thrive in the future of work and the potential impact of automation on jobs.</p>
       </div>
       <div className="button">
-        <button className="mx-auto px-4 py-2 cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_6'>Read More</Link></button>
+        <button className="mx-auto px-4 py-2 ml-[10rem] hover:scale-110  cursor-pointer bg-gradient-to-r from-slate-500 to-gray-700 border border-white text-white rounded-lg"><Link href='/Blog_6'>Read More</Link></button>
       </div>
     </div>
   </div>
@@ -166,11 +157,9 @@ export default function Home() {
 
         </motion.div>
     </motion.div>
-    <div className="">
-      <Footer />
-      </div>
+   
 
     
-    </div>
+    </main>
   );
 }

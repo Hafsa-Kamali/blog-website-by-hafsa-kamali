@@ -1,65 +1,158 @@
-"use client";
-
 import Image from 'next/image';
-import Head from 'next/head';
-import Particle from '../Particles';
+import React from 'react';
 
-export default function AboutMe() {
+interface InfoItem {
+  FieldName: string;
+  FieldValue: string;
+}
+
+interface EducationItem {
+  institution: string;
+  degree: string;
+  duration: string;
+}
+
+const AboutMe = () => {
+  const aboutMe = {
+    title: "About Me",
+    description:
+      "Hello, this is Hafsa Kamali here. I am a frontend web software developer with a super skill set in various programming languages like Python, HTML, CSS, JavaScript, TypeScript, React, and Next.js. I have good experience and have achieved many certificates in web development. I have been working on some projects like e-commerce and web development. I am also a graphic designer with expert handling skills and have worked on projects like logo design, posters, flyers, and brochures for various brands. I also know how to expertly handle filmmaking, video editing, animations, 3D animation movies, music editing, and many more things.",
+    info: [
+      { FieldName: "Name", FieldValue: "Hafsa Kamali" },
+      { FieldName: "Phone", FieldValue: "(+92)3........0" },
+      { FieldName: "Education", FieldValue: "Front-End Web Developer" },
+      { FieldName: "Nationality", FieldValue: "Pakistani" },
+      { FieldName: "E-mail", FieldValue: "hafsakamali362@gmail.com" },
+      { FieldName: "Freelance", FieldValue: "Available" },
+      { FieldName: "Languages", FieldValue: "English" },
+    ],
+    education: {
+      title: "My Education",
+      description:
+        "I have completed my 10th class with 95% marks. I completed my 12th class in pre-engineering with 90% marks, and recently, I am a student in the 2nd year of the Bachelor of Associate Degree in Arts program (ADA) at Karachi University. Additionally, I am a student of Certified Cloud And Generative AI Software Engineering through the Governor Sindh IT initiative, specializing in web 3.0 and metaverse courses.",
+      items: [
+        {
+          institution: "Govt. Sindh IT Initiative (Governor House Karachi)",
+          degree: "Certified Cloud And Generative AI Software Engineering",
+          duration: "2023- present",
+        },
+        {
+          institution: "Karachi University",
+          degree: "Bachelor of Associate Degree In Arts (ADA)",
+          duration: "2022- present",
+        },
+        {
+          institution: "Sir Syed Girls College",
+          degree: "Pre-Engineering",
+          duration: "2021- 2023",
+        },
+        {
+          institution: "Cambridge Public School",
+          degree: "Matriculation",
+          duration: "2019-2021",
+        },
+      ],
+    },
+    thanksMessage:
+      "I am incredibly grateful to all my teachers at the Governor Sindh IT Initiative. A special thanks to Sir Ameen Alam for guiding me throughout this journey, and heartfelt gratitude to my mentors, Sir Ubaid and Sir Anas, for their continuous support, knowledge, and inspiration.",
+  };
+
   return (
-    <div className="container mx-auto px-4 py-8 bg-[#1f2937] text-white h-auto">
-      <Head>
-        <title>About Hafsa Kamali - Web Developer & Designer</title>
-        <meta 
-          name="description" 
-          content="Learn more about Hafsa Kamali, a certified web developer, graphic designer, and video editor, and her journey in the Governor House training program with mentors Sir Anas and Sir Obaid." 
+    <div className="bg-transparent p-20 rounded-lg shadow-lg max-w-7xl mx-auto relative z-[20] ">
+     
+      <div className="absolute top-2 right-1 md:mt-[2rem] w-68 h-68 rounded-full overflow-hidden border-2 border-gray-300 shadow-md shadow-white hover:scale-105">
+        <Image
+          src="/hafsa kamali.PNG"
+          alt="Hafsa Kamali"
+          width={300}
+          height={300}
+          className="object-cover bg-black "
         />
-      </Head>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Left section for text content */}
-        <div className="flex flex-col justify-center text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-serif font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-gray-300 to-gray-500 mb-4">
-            Hafsa Kamali
-          </h1>
-          <p className="text-4xl md:text-4xl font-bold text-opacity-75 leading-relaxed mb-6">
-            Hi, I'm Hafsa Kamali, a certified and highly skilled web developer with extensive expertise in creating dynamic and responsive web applications. I'm also a talented graphic designer and video editor, specializing in film animation and video editing.
-          </p>
-          <p className="text-lg md:text-4xl font-bold text-opacity-75 leading-relaxed mb-6">
-            Currently, I'm part of an amazing training program at the Governor House, which has helped me grow tremendously. This program is guided by some of the most incredible mentors, including Sir Anas and Sir Obaid, who continuously push us to be our best.
-          </p>
-          <p className="text-lg md:text-4xl font-bold text-opacity-75 leading-relaxed mb-6">
-            In addition to my web development skills, I have strong command over programming languages such as HTML, CSS, JavaScript, TypeScript, and Next.js. I'm passionate about crafting beautiful and efficient designs and bringing creativity to life through animation and video editing.
-          </p>
-        </div>
-
-        {/* Right section for image */}
-        <div className="flex items-start justify-center md:justify-end">
-        <Image 
-          src="/hafsa kamali.PNG" 
-          alt="hafsa logo" 
-          width={350} 
-          height={300} 
-          className="rounded-lg shadow-lg hero-image-container bg-black bg-opacity-50"
-        />
-        </div>
       </div>
 
-      <div className="mt-16 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-8 rounded-lg shadow-xl text-white">
-        <h2 className="text-3xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-400 via-gray-300 to-gray-500 mb-6 text-center">
-          My Mentors
-        </h2>
-        <p className="text-lg md:text-4xl font-bold text-opacity-75 leading-relaxed mb-4 text-center">
-        The true essence of this program lies in the outstanding mentorship provided by Sir Anas and Sir Obaid. They are far more than just instructors; they are visionary leaders who bring a profound understanding of the tech industry, coupled with an unwavering commitment to the growth of their students. With their unmatched dedication and expertise, they have crafted an environment that is both challenging and nurturing, where learning is encouraged, and curiosity is celebrated.
+      <h1 className="text-6xl font-semibold mt-[15rem] md:mt-[0rem] font-serif text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-slate-300 mb-4">{aboutMe.title}</h1>
+      <p className="text-gray-300 mb-6 md:w-[75%] text-sm md:text-xl">{aboutMe.description}</p>
 
-Sir Anas and Sir Obaid are known for their ability to translate complex concepts into approachable, digestible lessons, making even the most intricate subjects accessible. Their approach goes beyond the standard curriculum, emphasizing the importance of critical thinking, problem-solving, and real-world applications of our skills. They challenge us to push beyond our limits, fostering a culture of continuous learning and innovation.
-
-Their wealth of knowledge spans across cutting-edge technologies, industry trends, and best practices, ensuring that we are not just prepared for today’s challenges but are also equipped to lead in the future. They seamlessly blend theory with practical insights, offering a holistic perspective that has been instrumental in my growth as a developer and designer.
-
-Under their mentorship, I have gained a profound understanding of modern development practices, as well as a strong grasp of the latest technological advancements. Their guidance has been pivotal in refining my skills, deepening my technical expertise, and enhancing my creative abilities. More than just teachers, they have been inspiring role models who motivate us to excel in our fields, empowering us to reach our fullest potential. Their influence has transformed this training journey into an experience that is not only educational but truly transformative and life-changing.
-        </p>
+      <div className="grid grid-cols-2 gap-4 mb-6 z-[20]">
+        {aboutMe.info.map((item: InfoItem, index: number) => (
+          <div key={index} className="bg-transparent border border-gray-400 p-4 rounded-md shadow-lg shadow-slate-400 hover:scale-105">
+            <h2 className="font-semibold text-gray-300">{item.FieldName}</h2>
+            <p className="text-gray-400">{item.FieldValue}</p>
+          </div>
+        ))}
       </div>
 
-      <Particle />
+      <h2 className="text-5xl font-semibold font-serif text-slate-300 mb-4">{aboutMe.education.title}</h2>
+      <p className="text-gray-300 mb-4 w-[90%] text-xl">{aboutMe.education.description}</p>
+      <ul className="space-y-4 mb-6">
+        {aboutMe.education.items.map((item: EducationItem, index: number) => (
+          <li key={index} className="bg-transparent border border-gray-400 p-4 rounded-md shadow-lg shadow-gray-400 hover:scale-105">
+            <h3 className="font-semibold text-gray-300">{item.institution}</h3>
+            <p className="text-gray-400">{item.degree}</p>
+            <p className="text-gray-500">{item.duration}</p>
+          </li>
+        ))}
+      </ul>
+     
+      <div className="bg-white bg-opacity-95 p-6 rounded-md shadow-lg">
+        <h2 className="text-xl font-bold text-gray-800">Special Thanks</h2>
+        <p className="text-gray-600 mt-2">{aboutMe.thanksMessage}</p>
+      </div>
+
+      <div className='col-span-4 mt-8'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[1rem] items-center'>
+          {[{
+            img: "/ameen alam.png",
+            name: "Sir Ameen Alam",
+            role: "Dean Of Faculty Of IT Initiative",
+            description: "Honoring our Dean of Faculty, Sir Ameen Alam, whose exceptional leadership and innovative IT initiatives have illuminated the path to excellence."
+          },
+          {
+            img: "/Ziakhan.png",
+            name: "Sir Zia Khan",
+            role: "COO & Developer Of Faculty Of IT Initiative",
+            description: "Honoring Sir Zia Khan, our esteemed Chief Operating Officer and Developer of the Faculty of IT Initiative."
+          },
+          {
+            img: "/Daniyalnagori.jpg",
+            name: "Sir Daniyal Nagori",
+            role: "CEO of Faculty Of IT Initiative",
+            description: "Honoring Sir Daniyal Nagori, the visionary CEO of the Faculty of IT Initiative."
+          },
+          {
+            img: "/ubaid sir.jpg",
+            name:  "Sir Ubaid",
+            role: "Lead Teacher of Faculty Of IT Initiative",
+            description: "Honoring Sir Ubaid, our Lead Teacher of the Faculty of IT Initiative."
+
+          },
+          {
+            img: "/Sir anas.jpg",
+            name: "Sir Anas",
+            role: "Lead Teacher of Faculty Of IT Initiative",
+            description: "Honoring Sir Anas, our esteemed Teacher of the Faculty of IT Initiative."
+          }
+        
+        ].map((mentor, index) => (
+            <div
+              key={index}
+              className='p-6 border border-gray-400 duration-300 transition-all cursor-pointer hover:scale-105 text-center rounded-lg bg-transparent shadow-lg shadow-slate-400'>
+              <Image 
+                src={mentor.img}
+                alt={mentor.name}
+                width={300}
+                height={300}
+                className='object-cover mx-auto'
+              />
+              <h1 className='text-[18px] mt-4 text-gray-200 font-semibold'>{mentor.name}</h1>
+              <h2 className='mt-2 text-gray-300 bg-transparent border-gray-400 border-2 shadow-md hover:shadow-white bg-opacity-75 p-2 rounded-lg'>{mentor.role}</h2>
+              <p className='mt-2 text-[18px] text-gray-400'>{mentor.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default AboutMe;
